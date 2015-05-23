@@ -26,6 +26,9 @@ public class ResumeServiceImpl implements ResumeService {
 	@Override
 	public EntityWrapper<List<Resume>> getResumeByResumeName(String resumeName, int page)
 			throws Exception {
+		System.out.println(System.getProperty("hello.home"));
+		System.out.println(System.getProperty("hello.home"));
+		System.out.println(System.getProperty("hello.home"));
 		Pageable pageable = new PageRequest(page, ResumeService.PAGE_SIZE,
 				Direction.DESC, ResumeService.RESUMENAME);
 		Page<Resume> resumes = repository
