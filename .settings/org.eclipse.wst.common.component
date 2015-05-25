@@ -9,7 +9,7 @@
         <dependent-module archiveName="MyJMS-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/MyJMS/MyJMS">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <property name="context-root" value="RestWebServce"/>
         <property name="java-output-path" value="/RestWebServce/target/classes"/>
+        <property name="context-root" value="RestWebService"/>
     </wb-module>
 </project-modules>
