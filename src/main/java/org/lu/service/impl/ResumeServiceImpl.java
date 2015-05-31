@@ -24,18 +24,18 @@ public class ResumeServiceImpl implements ResumeService {
 
 	@Transactional(readOnly = true)
 	@Override
-	public EntityWrapper<List<Resume>> getResumeByResumeName(String resumeName, int page)
-			throws Exception {
-		System.out.println(System.getProperty("hello.home"));
-		System.out.println(System.getProperty("hello.home"));
-		System.out.println(System.getProperty("hello.home"));
+	public EntityWrapper<List<Resume>> getResumeByResumeName(String resumeName,
+			int page) throws Exception {
 		Pageable pageable = new PageRequest(page, ResumeService.PAGE_SIZE,
 				Direction.DESC, ResumeService.RESUMENAME);
 		Page<Resume> resumes = repository
 				.findByResumeName(resumeName, pageable);
+		
 		EntityWrapper<List<Resume>> wrapper = new EntityWrapper<>();
-		wrapper.setEntity(resumes.getContent());
-		wrapper.setTotalNumberOfElement(resumes.getTotalElements());
+		if (resumes != null && resumes.getSize() > 1) {
+			wrapper.setEntity(resumes.getContent());
+			wrapper.setTotalNumberOfElement(resumes.getTotalElements());
+		}
 		return wrapper;
 	}
 
